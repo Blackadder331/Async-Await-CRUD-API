@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Alert from 'react-bootstrap/Alert';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -62,6 +68,9 @@ const App = () => {
   };
  
  return (
+    <Container>
+    <br></br>
+    <h1>The Social Network</h1>
     <div className="app">
     <div className="add-post-container">
       <br />
@@ -73,27 +82,36 @@ const App = () => {
             value={body} onChange={(e) => setBody(e.target.value)} 
           ></textarea>
           <br /><br />
-          <button type="submit">Add Post</button>
+          <Button className='btn-success' type="submit">Add Post</Button>
       </form>
     </div>
     <div className="posts-container">
           {posts.map((post) => {
               return (
-                <div className="post-card" key={post.id}>
+
+                <Card className="post-card" key={post.id}>
+                    <Card.Header>
+                    <br></br>
                     <h2 className="post-title">{post.title}</h2>
-                    <p className="post-body">{post.body}</p>
-                    <div className="button">
+                    <br></br>
+                    </Card.Header>
+                    <br></br>
+                    <Card.Body className="post-body">{post.body}</Card.Body>
+                    <Button className='btn-dark btn-sm post-btn' type='button'>
                       <div className="button">
-                        <div className="delete-btn" onClick={() => deletePost(post.id)}>
+                        <div className="delete-btn " onClick={() => deletePost(post.id)}>
                           Delete
                         </div>
                       </div>    
-                    </div>  
-                </div>
+                    </Button> 
+                    <br></br> 
+                </Card>
+
               );
           })}
         </div>
     </div>
+    </Container>
     );
 };
 

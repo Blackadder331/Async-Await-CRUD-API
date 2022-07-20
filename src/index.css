@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+form {
+  margin-bottom: 75px;
+}
+
+.card {
+  margin-bottom: 75px;
+  min-width: 350px;
+  max-width: 25vw;
+}
+
+.post-card{
+  min-width: 350px;
+}
+
+
+.posts-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between ;
+  /* flex-wrap: wrap; */
+}
+
+.post-btn {
+  margin: 1rem;
+}
